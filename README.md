@@ -14,6 +14,7 @@ first-assignment-MapleYuna created by GitHub Classroom
 - Sử dụng Haar Cascade cắt trực tiếp đc mặt ra từ ảnh raw
 - Chương trình cắt khuôn mặt từ ảnh raw được lưu trong file `Annotate_haar_cascode.py`
 - Sau khi cắt xong, ảnh được lưu trong thư mục **_annotated_face_data_haar_cascode_**
+- Có một số ảnh không nhận mặt được
 
 > * **Input:** 50 ảnh raw
 > * **Output:** 50 ảnh mặt đã được cắt ra
@@ -30,3 +31,4 @@ first-assignment-MapleYuna created by GitHub Classroom
 
 ### Hạn chế
 - Chương trình mới chỉ nhận diện được các ảnh có 1 khuôn mặt
+- Có một số ảnh sẽ không nhận mặt nếu dùng Haar Cascode

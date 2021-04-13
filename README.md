@@ -20,6 +20,7 @@ first-assignment-MapleYuna created by GitHub Classroom
 
 ## 3. Viết chương trình cắt ra vùng khuôn mặt đã annotate (Manual)
 - Chương trình được viết ở file `Annotate_manual.py`
+- Sau khi cắt xong, ảnh được lưu trong thư mục **_annotated_face_data_manual_**
 
 > * **Input:** 50 ảnh raw và 50 file **.json**
 > * **Output:** 50 ảnh mặt đã được cắt ra

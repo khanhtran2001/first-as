@@ -9,11 +9,11 @@ face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 image_dir = "face_data"
 
-if os.path.exists("auto_anotation") == 0:
-    os.makedirs("auto_anotation")
+if os.path.exists("auto_annotation") == 0:
+    os.makedirs("auto_annotation")
     
-if os.path.exists("auto_anotation_json") == 0:
-    os.makedirs("auto_anotation_json")
+if os.path.exists("auto_annotation_json") == 0:
+    os.makedirs("auto_annotation_json")
 
 for each_img in os.listdir(image_dir):
     per_dir = os.path.join(image_dir, each_img)
@@ -24,7 +24,7 @@ for each_img in os.listdir(image_dir):
     
     for (X_start, Y_start, X_range, Y_range) in faces:
         new_img = img[Y_start:Y_start+Y_range, X_start:X_start+X_range]
-        cv2.imwrite("auto_anotation/"+ each_img, new_img)
+        cv2.imwrite("auto_annotation/"+ each_img, new_img)
        
         with open(image_dir+"/"+each_img, "rb") as image_file:
                 encode_image = base64.b64encode(image_file.read())
@@ -52,6 +52,6 @@ for each_img in os.listdir(image_dir):
             "imageWidth": int(origin_W)  
         }
        
-        with open(("auto_anotation_json/"+each_img.strip(".jpg")+".json").strip(".jpg"), "w",encoding='utf-8') as json_file:
+        with open(("auto_annotation_json/"+each_img.strip(".jpg")+".json").strip(".jpg"), "w",encoding='utf-8') as json_file:
             json.dump(data, json_file)
             

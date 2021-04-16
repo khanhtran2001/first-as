@@ -27,3 +27,26 @@ for each_img in os.listdir(image_dir):
 
         with open(image_dir+"/"+each_img, "rb") as image_file:
                 encode_image = base64.b64encode(image_file.read())
+
+        data = {
+            "shapes": [
+                {
+                    "label": each_img,
+                    "points": [
+                        [
+                            int(Y_start),
+                            int(Y_range)
+                        ],
+                        [
+                            int(X_start),
+                            int(X_range)
+                        ]
+                    ],
+                    "shape_type": "rectangle",
+                }
+            ],
+            "imagePath":"..\\"+image_dir+"\\"+ each_img,
+            "imageData": encode_image.decode("utf-8"),
+            "imageHeight": int(origin_H), 
+            "imageWidth": int(origin_W)  
+        }

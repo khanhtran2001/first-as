@@ -1,0 +1,8 @@
+.vscode
+.idea
+venv
+haarcascade_frontalcatface_extended.xml*
+haarcascade_frontalcatface.xml*
+haarcascade_frontalface_alt.xml*
+haarcascade_frontalface_alt2.xml*
+haarcascade_profileface.xml*

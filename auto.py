@@ -9,7 +9,11 @@ face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 image_dir = "face_data"
 
-
+if os.path.exists("auto_annotation") == 0:
+    os.makedirs("auto_annotation")
+    
+if os.path.exists("auto_annotation_json") == 0:
+    os.makedirs("auto_annotation_json")
 
 for each_img in os.listdir(image_dir):
     per_dir = os.path.join(image_dir, each_img)

@@ -6,6 +6,7 @@ import os
 import base64
 
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+
 image_dir = "face_data"
 
 if os.path.exists("auto_anotation") == 0:
@@ -20,14 +21,14 @@ for each_img in os.listdir(image_dir):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     origin_H, origin_W, _ = img.shape
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
-
+    
     for (X_start, Y_start, X_range, Y_range) in faces:
         new_img = img[Y_start:Y_start+Y_range, X_start:X_start+X_range]
         cv2.imwrite("auto_anotation/"+ each_img, new_img)
-
+       
         with open(image_dir+"/"+each_img, "rb") as image_file:
                 encode_image = base64.b64encode(image_file.read())
-
+       
         data = {
             "shapes": [
                 {
@@ -50,6 +51,7 @@ for each_img in os.listdir(image_dir):
             "imageHeight": int(origin_H), 
             "imageWidth": int(origin_W)  
         }
-
+       
         with open(("auto_anotation_json/"+each_img.strip(".jpg")+".json").strip(".jpg"), "w",encoding='utf-8') as json_file:
             json.dump(data, json_file)
+            

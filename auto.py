@@ -24,3 +24,6 @@ for each_img in os.listdir(image_dir):
     for (X_start, Y_start, X_range, Y_range) in faces:
         new_img = img[Y_start:Y_start+Y_range, X_start:X_start+X_range]
         cv2.imwrite("auto_anotation/"+ each_img, new_img)
+
+        with open(image_dir+"/"+each_img, "rb") as image_file:
+                encode_image = base64.b64encode(image_file.read())

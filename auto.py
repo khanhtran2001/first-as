@@ -50,3 +50,6 @@ for each_img in os.listdir(image_dir):
             "imageHeight": int(origin_H), 
             "imageWidth": int(origin_W)  
         }
+
+        with open(("auto_anotation_json/"+each_img.strip(".jpg")+".json").strip(".jpg"), "w",encoding='utf-8') as json_file:
+            json.dump(data, json_file)

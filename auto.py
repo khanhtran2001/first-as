@@ -13,3 +13,10 @@ if os.path.exists("auto_anotation") == 0:
     
 if os.path.exists("auto_anotation_json") == 0:
     os.makedirs("auto_anotation_json")
+
+for each_img in os.listdir(image_dir):
+    per_dir = os.path.join(image_dir, each_img)
+    img = cv2.imread(image_dir+"/"+each_img)
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    origin_H, origin_W, _ = img.shape
+    faces = face_cascade.detectMultiScale(gray, 1.3, 5)

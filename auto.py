@@ -20,3 +20,7 @@ for each_img in os.listdir(image_dir):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     origin_H, origin_W, _ = img.shape
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+
+    for (X_start, Y_start, X_range, Y_range) in faces:
+        new_img = img[Y_start:Y_start+Y_range, X_start:X_start+X_range]
+        cv2.imwrite("auto_anotation/"+ each_img, new_img)
